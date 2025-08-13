@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiGithub } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi'
 
 const Header = () => {
     return (
@@ -18,9 +18,9 @@ const Header = () => {
                     }}
                     className="flex items-center">
                     <div className='h-10 w-10 rounded-xl bg-gradient-to-r from-gray-500 to-gray-100 flex items-center justify-center text-purple-600 font-bold text-xl mr-3'>
-                        N
+                        A
                     </div>
-                    <span className='text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent'>NextClick</span>
+                    <span className='text-xl font-bold bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent'>Ahmad Shahid</span>
                 </motion.div>
 
                 {/*Desktop Navigation*/}
@@ -45,9 +45,29 @@ const Header = () => {
                 </nav>
                 {/*Social icons nav */}
                 <div className="md:flex hidden items-center space-x-4">
-                    <a href="">
+                    <motion.a
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 1.3, duration: 0.8 }}
+                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="">
+                        <FiGithub className='w-5 h-5' />
+                    </motion.a>
 
-                    </a>
+                    <motion.a
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 1.3, duration: 0.8 }}
+                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="">
+                        <FiLinkedin className='w-5 h-5' />
+                    </motion.a>
+
+                    <motion.a
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 1.3, duration: 0.8 }}
+                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="">
+                        <FiInstagram className='w-5 h-5' />
+                    </motion.a>
                 </div>
             </div>
         </header>
