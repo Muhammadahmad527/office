@@ -7,6 +7,7 @@ function App() {
     <>
       <div className="heading">
         <h1>ahmad</h1>
+        <p>this is new</p>
       </div>
     </>
   )
