@@ -5,10 +5,9 @@ function App() {
 
   return (
     <>
-      <div className="heading">
-        <h1>ahmad</h1>
-        <p>this is new</p>
-      </div>
+      <h1 className="text-3xl font-bold text-blue-500">
+  Tailwind v4 is working!
+</h1>
     </>
   )
 }
