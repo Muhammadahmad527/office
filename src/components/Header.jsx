@@ -92,7 +92,7 @@ const Header = () => {
                             stiffness: 100,
                             damping: 15,
                         }}
-                        className='ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-gray-400 to-gray-100 text-violet-700 font-bold hover:from-violet-700 hover:to-purple-700 hover:text-white transition-all duration-500'>
+                        className='ml-4 px-4 py-2 rounded-xl bg-gradient-to-r from-gray-400 to-gray-100 text-violet-700 font-bold hover:from-violet-700 hover:to-purple-700 hover:text-white transition-all duration-500 cursor-pointer'>
                         Hire Me
                     </motion.button>
                 </div>
@@ -147,7 +147,7 @@ const Header = () => {
             {ContactFormOpen && (
                 <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={{ opacity: 1 }} 
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
                     className='fixed inset-0 bg-black/50 background-blur-sm z-50 flex items-center justify-center p-4'
