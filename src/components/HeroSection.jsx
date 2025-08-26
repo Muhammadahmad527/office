@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Spline from '@splinetool/react-spline'
 
 const HeroSection = () => {
   return (
@@ -32,6 +33,10 @@ const HeroSection = () => {
                 I deliver robust, Production-ready websites with speed and precision. Every project is backed by clean code, clear communication, and a commitment to getting it done, on time, everytime.
             </motion.p>
         </div>
+
+        {/* right section */}
+            <Spline scene="https://prod.spline.design/WDabHRzWN8O1gY3A/scene.splinecode" />
+
     </section>
   )
 }
