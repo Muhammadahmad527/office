@@ -63,12 +63,12 @@ const CustomCursor = () => {
             {/* main cursor dot */}
             <dev
                 ref={cursorRef}
-                className='fixed top-0 left-0 w-[15px] h-[15px] bg-white rounded-full pointer-events-none z-[999] mix-blend-difference'
+                className='fixed top-0 left-0 w-[6px] h-[6px] bg-white rounded-full pointer-events-none z-[999] mix-blend-difference'
             />
 
             <div
                 ref={cursorBorderRef}
-                className='fixed top-0 left-0 w-[40px] h-[40px] border rounded-full border-white pointer-events-none z-[999] mix-blend-difference opacity-50'
+                className='fixed top-0 left-0 w-[27px] h-[27px] border rounded-full border-purple-300 pointer-events-none z-[999] mix-blend-difference opacity-50'
             />
         </>
     )
