@@ -45,12 +45,14 @@ const CustomCursor = () => {
 
         //Add click animation
 
-        document.addEventListener("mousedown", () => {
-            gsap.to([cursor, cursorBorder], {
-                scale: 0.6,
-                duration:0.2,
-            })
-        })
+
+        // //cursor shorter now commented//
+        // document.addEventListener("mousedown", () => {
+        //     gsap.to([cursor, cursorBorder], {
+        //         scale: 0.6,
+        //         duration:0.2,
+        //     })
+        // })
         document.addEventListener("mosueup", () => {
             gsap.to([cursor, cursorBorder], {
                 scale:1,
