@@ -3,8 +3,9 @@
 /* @config "../tailwind.config.js"; */
 
 
-body{
-    overflow: hidden;
+body {
+    overflow-x: hidden;   /* ✅ prevent horizontal scrollbar */
+    overflow-y: auto;     /* ✅ allow vertical scrolling */
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
