@@ -123,7 +123,7 @@ const Header = () => {
                 </nav>
                 <div className='pt-4 border-t border-gray-200 dark:border-gray-700'>
                     <div className='flex space-x-5'>
-                        <a href="#">
+                        <a href="https://github.com/Muhammadahmad527">
                             <FiGithub className='h-5 w-5 text-gray-300' />
                         </a>
                         <a href="#">
