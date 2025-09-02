@@ -7,6 +7,7 @@ import HeroSection from './components/HeroSection'
 import AboutSection from './components/AboutSection'
 import CustomCursor from './components/CustomCursor'
 import ProjectSection from './components/ProjectSection'
+import ContactSection from './components/ContactSection'
 import './App.css'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <AboutSection />
       <CustomCursor />
       <ProjectSection />
+      <ContactSection />
    </div>
   ) 
 }
