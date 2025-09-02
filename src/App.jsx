@@ -8,6 +8,7 @@ import AboutSection from './components/AboutSection'
 import CustomCursor from './components/CustomCursor'
 import ProjectSection from './components/ProjectSection'
 import ContactSection from './components/ContactSection'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <CustomCursor />
       <ProjectSection />
       <ContactSection />
+      <Footer />
    </div>
   ) 
 }

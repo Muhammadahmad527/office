@@ -159,7 +159,7 @@ const ProjectSection = () => {
       //image scale and opacity animation
       timeline.fromTo(image, { scale: 0, rotate: -20, }, { scale: 1, rotate: 1, duration: 0.5 })
       //title animation if it exists
-      if (imageTitle){
+      if (imageTitle) {
         timeline.fromTo(imageTitle, { y: 30, }, { y: -100, duration: 0.3 }, 0.2)
       }
 
