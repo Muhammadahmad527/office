@@ -94,7 +94,7 @@ const ContactSection = () => {
                     <h1 className='text-black md:w-[10rem] w-[20rem] lg:scale-[0.4] sm:scale-[0.25] scale-[0.07] md:font-bold text-sm sm:text-base leading-none mb-5'>
                         Step Into the Future with Ahmad Shahid
                     </h1>
-                    <p className='text-black lg:w-[40rem] w-[20rem] absolute sm:mt-3 mt-1 md:scale-[0.1] scale-[0.068]'>
+                    <p className="text-black lg:w-[40rem] w-[20rem] absolute sm:mt-3 mt-1 md:scale-[0.1] scale-[0.068] text-sm lg:text-xs">
                         Front-End Developer specialized in crafting modern, responsive web interfaces using React, Tailwind CSS and advanced UI animation techniques. Focused on clean code and pixel-perfect design that stands out.
                     </p>
                     <button className='px-10 py-2 rounded-xl bg-black hover:bg-white hover:text-black transition-all duration-500 scale-[0.1] absolute sm:mt-9 mt-7 text-nowrap'>

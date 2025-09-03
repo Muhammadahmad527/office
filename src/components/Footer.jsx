@@ -17,7 +17,7 @@ const Footer = () => {
                         Connect
                     </h3>
                     <div className="flex space-x-4">
-                        <a className='text-gray-700 hover:text-violet-400 transition-colors' href="#">
+                        <a className='text-gray-700 hover:text-violet-400 transition-colors' href="https://github.com/Muhammadahmad527">
                             <FiGithub className='w-5 h-5' />
                         </a>
                         <a className='text-gray-700 hover:text-violet-400 transition-colors' href="#">

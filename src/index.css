@@ -13,5 +13,5 @@ body {
     position: relative;
     background-color: black;
     color: white;
-    cursor: none;
+    cursor: default;
 }
