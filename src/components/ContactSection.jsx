@@ -69,6 +69,7 @@ const ContactSection = () => {
 
     return (
         <section
+        id="contact"
             ref={sectionRef}
             // real height + clip overflow so giant circle can't cover later sections
             className="relative flex items-center justify-center bg-black min-h-screen overflow-hidden"
@@ -97,7 +98,8 @@ const ContactSection = () => {
                     <p className="text-black lg:w-[40rem] w-[20rem] absolute sm:mt-3 mt-1 md:scale-[0.1] scale-[0.068] text-sm lg:text-xs">
                         Front-End Developer specialized in crafting modern, responsive web interfaces using React, Tailwind CSS and advanced UI animation techniques. Focused on clean code and pixel-perfect design that stands out.
                     </p>
-                    <button className='px-10 py-2 rounded-xl bg-black hover:bg-white hover:text-black transition-all duration-500 scale-[0.1] absolute sm:mt-9 mt-7 text-nowrap'>
+                    <button className='px-10 py-2 rounded-xl bg-black hover:bg-white hover:text-black transition-all duration-500 scale-[0.1] absolute sm:mt-9 mt-7 text-nowrap'
+                    onClick={() => window.openContactForm()}>
                         Contact Me
                     </button>
                 </div>

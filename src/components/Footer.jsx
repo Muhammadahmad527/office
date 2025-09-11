@@ -1,4 +1,4 @@
-import {FiGithub, FiLinkedin, FiFacebook} from 'react-icons/fi'
+import {FiGithub, FiLinkedin, FiInstagram} from 'react-icons/fi'
 
 const Footer = () => {
     // console.log("ye chal rha ha")
@@ -20,11 +20,11 @@ const Footer = () => {
                         <a className='text-gray-700 hover:text-violet-400 transition-colors' href="https://github.com/Muhammadahmad527">
                             <FiGithub className='w-5 h-5' />
                         </a>
-                        <a className='text-gray-700 hover:text-violet-400 transition-colors' href="#">
+                        <a className='text-gray-700 hover:text-violet-400 transition-colors' href="https://www.linkedin.com/in/ahmad-shahid?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
                             <FiLinkedin className='w-5 h-5' />
                         </a>
-                        <a className='text-gray-700 hover:text-violet-400 transition-colors' href="#">
-                            <FiFacebook className='w-5 h-5' />
+                        <a className='text-gray-700 hover:text-violet-400 transition-colors' href="https://www.instagram.com/ahmad_shahid527?igsh=djlqYTFucWx5ZnQ3&utm_source=qr">
+                            <FiInstagram className='w-5 h-5' />
                         </a>
                     </div>
                 </div>

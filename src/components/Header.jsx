@@ -1,15 +1,35 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { Link } from "react-scroll";
 import { FiGithub, FiLinkedin, FiInstagram, FiMenu, FiX } from 'react-icons/fi'
 
 
 const Header = () => {
+
+
+const navLinks = ["Home", "About", "Projects", "Experience", "Contact"];
+
+// mapping: which item should scroll to which section id
+const sectionMap = {
+  Home: "home",
+  About: "about",
+  Projects: "horizontal-section",   // 👈 both point here
+  Experience: "horizontal-section", // 👈
+  Contact: "contact",
+};
+
+
+
+
+
     //Toggle the menu open/close
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => setIsOpen(!isOpen);
 
     //State to track if the contact form is open
     const [ContactFormOpen, setContactFormOpen] = useState(false);
+    window.openContactForm = () => setContactFormOpen(true);
+
 
     const openContactForm = () => setContactFormOpen(true);
     const closeContactForm = () => setContactFormOpen(false);
@@ -35,25 +55,33 @@ const Header = () => {
                 </motion.div>
 
                 {/*Desktop Navigation*/}
-                <nav className="lg:flex hidden space-x-8">
-                    {["Home", "About", "Projects", "Experience", "Contact"].map((item, index) => (
-                        <motion.a
-                            key={item}
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 100,
-                                damping: 20,
-                                delay: 0.7 + index * 0.2,
-                            }}
-                            className="relative text-gray-800 dark:text-gray-200 hover:violet-600 dark:hover:text-violet-400 font-medium transition-colors duration-300 group"
-                            href="#">
-                            {item}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-600 group-hover:w-full transition-all duration-300 "></span>
-                        </motion.a>
-                    ))}
-                </nav>
+               <nav className="lg:flex hidden space-x-8">
+      {navLinks.map((item, index) => (
+        <motion.div
+          key={item}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            delay: 0.7 + index * 0.2,
+          }}
+          className="relative text-gray-800 dark:text-gray-200 hover:violet-600 dark:hover:text-violet-400 font-medium transition-colors duration-300 group"
+        >
+          <Link
+            to={sectionMap[item]} // ✅ use mapped id
+            smooth={true}
+            duration={600}
+            offset={-70}
+            className="cursor-pointer"
+          >
+            {item}
+          </Link>
+          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-violet-600 group-hover:w-full transition-all duration-300"></span>
+        </motion.div>
+      ))}
+    </nav>
                 {/*Social icons nav */}
                 <div className="md:flex hidden items-center space-x-4">
                     <motion.a
@@ -68,7 +96,7 @@ const Header = () => {
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.3, duration: 0.8 }}
-                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="">
+                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="https://www.linkedin.com/in/ahmad-shahid?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios">
                         <FiLinkedin className='w-5 h-5' />
                     </motion.a>
 
@@ -76,7 +104,7 @@ const Header = () => {
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.3, duration: 0.8 }}
-                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="">
+                        className='text-gray-700 dark:text-gray-300 hover:text-violet-600 dark:hover:text-violet-400 transition-colors duration-300' href="https://www.instagram.com/ahmad_shahid527?igsh=djlqYTFucWx5ZnQ3&utm_source=qr">
                         <FiInstagram className='w-5 h-5' />
                     </motion.a>
 
@@ -174,38 +202,87 @@ const Header = () => {
                                 </button>
                             </div>
                             {/* Input form */}
-                            <form className='space-y-4'>
+                            <form
+                                onSubmit={async (event) => {
+                                    event.preventDefault();
+                                    const formData = new FormData(event.target);
+
+                                    formData.append("access_key", "6e7326ef-a88b-4d35-a59f-ef49f94c4566"); // put your key here
+
+                                    const object = Object.fromEntries(formData);
+                                    const json = JSON.stringify(object);
+
+                                    const res = await fetch("https://api.web3forms.com/submit", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                            Accept: "application/json"
+                                        },
+                                        body: json
+                                    }).then((res) => res.json());
+
+                                    if (res.success) {
+                                        alert("✅ Message Sent Successfully!");
+                                        event.target.reset(); // clear form after send
+                                    } else {
+                                        alert("❌ Something went wrong. Please try again.");
+                                    }
+                                }}
+                                className="space-y-4"
+                            >
+                                <input type="hidden" name="subject" value="📩 New Message from Ahmad Shahid Website" />
                                 <div>
-                                    <label htmlFor="name" className='block text-sm font-medium text-gray-300 mb-1'>
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                                         Name
                                     </label>
-                                    <input type="text" id='name' placeholder='Your Name' className='w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700' />
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name" // 👈 required
+                                        placeholder="Your Name"
+                                        className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
+                                        required
+                                    />
                                 </div>
 
-
                                 <div>
-                                    <label htmlFor="email" className='block text-sm font-medium text-gray-300 mb-1'>
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                                         Email
                                     </label>
-                                    <input type="email" id='email' placeholder='Your Email' className='w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700' />
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email" // 👈 required
+                                        placeholder="Your Email"
+                                        className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
+                                        required
+                                    />
                                 </div>
 
-
                                 <div>
-                                    <label htmlFor="message" className='block text-sm font-medium text-gray-300 mb-1'>
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                                         Message
                                     </label>
                                     <textarea
-                                        rows="4" id='message' placeholder='How can I help you?' className='w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700' />
+                                        rows="4"
+                                        id="message"
+                                        name="message" // 👈 required
+                                        placeholder="How can I help you?"
+                                        className="w-full px-4 py-2 border border-gray-600 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 bg-gray-700"
+                                        required
+                                    />
                                 </div>
+
                                 <motion.button
-                                    type='submit'
+                                    type="submit"
                                     whileHover={{ scale: 1.03 }}
                                     whileTap={{ scale: 0.97 }}
-                                    className='w-full px-4 py-2 bg-gradient-to-r from-violet-600 to-violet-400 hover:from-violet-700 hover:to-purple-700 transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:shadow-violet-600/50'>
+                                    className="w-full px-4 py-2 bg-gradient-to-r from-violet-600 to-violet-400 hover:from-violet-700 hover:to-purple-700 transition-all duration-300 rounded-lg shadow-md hover:shadow-lg hover:shadow-violet-600/50"
+                                >
                                     Send Message
                                 </motion.button>
                             </form>
+
                         </motion.div>
                     </motion.div>
                 )}
